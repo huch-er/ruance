@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'maven:3.3.3'
+            args '-v //C:/Users/afant/.m2:/root/.m2'
+        }
+    }
+
     stages {
         stage('Static Inspect') {
             steps {
